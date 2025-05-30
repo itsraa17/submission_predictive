@@ -58,6 +58,8 @@ Metrik evaluasi yang digunakan dalam proyek ini mencakup:
 
 Dataset ini digunakan untuk memprediksi apakah seseorang berisiko mengidap penyakit jantung berdasarkan parameter kesehatan.
 
+![alt text](resource/data.png)
+
 ### Atribut Data
 
 Berikut adalah daftar atribut beserta deskripsinya:
