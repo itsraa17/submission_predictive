@@ -128,21 +128,26 @@ Univariate analysis bertujuan untuk memahami distribusi masing-masing fitur seca
 **Fitur Kategorikal**
 
 * **Sex**: Mayoritas adalah laki-laki (>70%).
+  
   ![alt text](resource/univariate%20sex.png)
 
 * **ChestPainType**: Tipe nyeri dada paling umum adalah ASY, diikuti oleh NAP, ATA, dan TA.
   ![alt text](resource/univariate%20chestpain.png)
 
 * **FastingBS**: Sekitar 80% partisipan memiliki kadar gula darah puasa normal (nilai 0).
+  
   ![alt text](resource/univariate%20fastingbs.png)
 
 * **RestingECG**: Sebagian besar hasil EKG normal, namun \~40% menunjukkan abnormalitas (LVH/ST).
+
   ![alt text](resource/univariate%20restingecg.png)
 
 * **ExerciseAngina**: Sekitar 62.8% tidak mengalami angina saat olahraga.
+
   ![alt text](resource/univariate%20exangina.png)
 
 * **ST\_Slope**: Hampir 50% pasien memiliki slope Up, diikuti Flat (47%) dan Down (4.6%).
+
   ![alt text](resource/univariate%20stslope.png)
 
 
@@ -177,6 +182,20 @@ Bertujuan untuk memahami hubungan antar fitur.
 
 * Distribusi fitur numerik diamati menggunakan pairplot untuk membandingkan pasien dengan dan tanpa penyakit jantung.
 * **Oldpeak** dan **MaxHR** menunjukkan perbedaan pola yang signifikan antar kelompok target.
+
+**Matriks Korelasi**
+
+![alt text](resource/matriks%20korelasi.png)
+
+* Korelasi antara fitur numerik dengan penyakit jantung (HeartDisease) menunjukkan:
+
+  * **Oldpeak** memiliki korelasi positif tertinggi terhadap HeartDisease (**0.50**) yang berarrti semakin tinggi nilai Oldpeak, semakin besar kemungkinan terkena penyakit jantung.
+  * **MaxHR** memiliki korelasi negatif tertinggi terhadap HeartDisease (**-0.39**) yaitu semakin rendah detak jantung maksimal, semakin besar kemungkinan terkena penyakit jantung.
+  * **Age** dan **RestingBP** memiliki korelasi positif lemah terhadap HeartDisease (**0.31** dan **0.17**).
+  * **Cholesterol** menunjukkan korelasi yang sangat lemah terhadap HeartDisease (**0.091**), hampir tidak ada pengaruh.
+  * **Age** dan **MaxHR** berkorelasi negatif (**-0.4**), semakin tua usia, semakin rendah detak jantung maksimal.
+  * **Age** dan **Oldpeak** berkorelasi positif (**0.29**), usia lebih tua cenderung memiliki nilai Oldpeak lebih tinggi.
+  * Korelasi antara fitur lainnya relatif lemah atau mendekati nol, menunjukkan hubungan yang tidak signifikan secara linear.
 
 ---
 
