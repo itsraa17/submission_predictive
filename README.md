@@ -62,6 +62,8 @@ Dataset ini digunakan untuk memprediksi apakah seseorang berisiko mengidap penya
 
 ### Atribut Data
 
+![alt text](resource/data2.png)
+
 Berikut adalah daftar atribut beserta deskripsinya:
 
 | Fitur          | Deskripsi                                        |
@@ -94,6 +96,8 @@ Dataset ini sangat cocok untuk proyek klasifikasi karena memiliki data yang rele
 ## Exploratory Data Analysis - Missing Value & Outlier
 Mengecek missing value, duplikat, dan data yang dianggap memiliki kejanggalan.
 
+![alt text](resource/duplikat.png)
+
 **Data Duplikat**
 Jumlah data duplikat: 0
 Tidak ada data duplikat yang perlu dihapus dari dataset.
@@ -110,7 +114,11 @@ Melakukan visualisasi data dengan boxplot untuk tiap fitur numerik guna mengiden
 * MaxHR
 * Oldpeak
 
+![alt text](resource/outlier%20sebelum.png)
+
 Outlier ditangani menggunakan metode IQR (Interquartile Range), dilakukan dalam tiga iterasi hingga data bersih dari outlier. Setelah proses ini, dataset menyisakan 691 baris dan 12 kolom.
+
+![alt text](resource/outlier%20sesudah.png)
 
 ---
 
@@ -120,13 +128,27 @@ Univariate analysis bertujuan untuk memahami distribusi masing-masing fitur seca
 **Fitur Kategorikal**
 
 * **Sex**: Mayoritas adalah laki-laki (>70%).
-* **ChestPainType**: Tipe nyeri dada paling umum adalah ASY, diikuti oleh NAP, ATA, dan TA.
-* **FastingBS**: Sekitar 80% partisipan memiliki kadar gula darah puasa normal (nilai 0).
-* **RestingECG**: Sebagian besar hasil EKG normal, namun \~40% menunjukkan abnormalitas (LVH/ST).
-* **ExerciseAngina**: Sekitar 62.8% tidak mengalami angina saat olahraga.
-* **ST\_Slope**: Hampir 50% pasien memiliki slope Up, diikuti Flat (47%) dan Down (4.6%).
+  ![alt text](resource/univariate%20sex.png)
 
-**Fitur Numerik** (berdasarkan histogram):
+* **ChestPainType**: Tipe nyeri dada paling umum adalah ASY, diikuti oleh NAP, ATA, dan TA.
+  ![alt text](resource/univariate%20chestpain.png)
+
+* **FastingBS**: Sekitar 80% partisipan memiliki kadar gula darah puasa normal (nilai 0).
+  ![alt text](resource/univariate%20fastingbs.png)
+
+* **RestingECG**: Sebagian besar hasil EKG normal, namun \~40% menunjukkan abnormalitas (LVH/ST).
+  ![alt text](resource/univariate%20restingecg.png)
+
+* **ExerciseAngina**: Sekitar 62.8% tidak mengalami angina saat olahraga.
+  ![alt text](resource/univariate%20exangina.png)
+
+* **ST\_Slope**: Hampir 50% pasien memiliki slope Up, diikuti Flat (47%) dan Down (4.6%).
+  ![alt text](resource/univariate%20stslope.png)
+
+
+**Fitur Numerik**
+
+![alt text](resource/univariate%20nuerik.png)
 
 * **Age**: Distribusi hampir normal, dominan usia 50–60 tahun.
 * **RestingBP**: Terdapat lonjakan pada nilai umum (120, 130, 140) yang mungkin default input.
@@ -141,6 +163,8 @@ Bertujuan untuk memahami hubungan antar fitur.
 
 **Fitur Kategorikal vs HeartDisease**
 
+![alt text](resource/multivariate%20kategorikal%20vs%20target.png)
+
 * **Sex**: Laki-laki memiliki proporsi lebih tinggi mengalami penyakit jantung.
 * **ChestPainType**: Tipe ASY paling berhubungan dengan penyakit jantung; ATA paling rendah.
 * **RestingECG**: Tipe ST dan LVH lebih dominan pada pasien dengan penyakit jantung.
@@ -148,6 +172,8 @@ Bertujuan untuk memahami hubungan antar fitur.
 * **ST\_Slope**: Slope datar dan menurun berkorelasi kuat dengan HeartDisease.
 
 **Fitur Numerik vs HeartDisease**
+
+![alt text](resource/multivariate%20numerikal%20vs%20target.png)
 
 * Distribusi fitur numerik diamati menggunakan pairplot untuk membandingkan pasien dengan dan tanpa penyakit jantung.
 * **Oldpeak** dan **MaxHR** menunjukkan perbedaan pola yang signifikan antar kelompok target.
@@ -229,6 +255,8 @@ knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(X_train, y_train)
 ```
 
+![alt text](resource/knn.png)
+
 **Parameter Penting:**
 
 * `n_neighbors=5`: Melihat 5 tetangga terdekat untuk klasifikasi.
@@ -250,6 +278,8 @@ from sklearn.svm import SVC
 svm = SVC(kernel='rbf', C=1.0, gamma='scale', probability=True)
 svm.fit(X_train, y_train)
 ```
+
+![alt text](resource/svm.png)
 
 **Parameter Penting:**
 
@@ -276,6 +306,8 @@ from sklearn.ensemble import RandomForestClassifier
 rf = RandomForestClassifier(n_estimators=100, random_state=42, max_depth=None, criterion="gini")
 rf.fit(X_train, y_train)
 ```
+
+![alt text](resource/rf.png)
 
 **Parameter Penting:**
 
@@ -359,6 +391,8 @@ plt.tight_layout()
 plt.show()
 ```
 
+![alt text](resource/perbandingan%20evaluasi.png)
+
 ---
 
 ## Prediksi Sampel
@@ -375,9 +409,9 @@ pred_dict = {
 pd.DataFrame(pred_dict)
 ```
 
-### Analisis Sampel
+![alt text](resource/prediksi.png)
 
-**Kesimpulan:**
+**Analisis Sampel**
 * Sampel 1–3: Semua model prediksi benar.
 * Sampel 4: Hanya KNN yang salah.
 * Sampel 5: KNN salah, RF dan SVM benar.
