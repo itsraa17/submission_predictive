@@ -93,7 +93,7 @@ Berikut adalah daftar atribut beserta deskripsinya:
 
 Dataset ini sangat cocok untuk proyek klasifikasi karena memiliki data yang relevan, ukuran yang cukup untuk eksperimen, serta konteks medis yang penting.
 
-## Exploratory Data Analysis - Missing Value & Outlier
+### Missing Value & Outlier
 Mengecek missing value, duplikat, dan data yang dianggap memiliki kejanggalan.
 
 ![alt text](resource/duplikat.png)
