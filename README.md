@@ -54,13 +54,13 @@ Metrik evaluasi yang digunakan dalam proyek ini mencakup:
 
 # Data Understanding
 
-### Deskripsi Dataset
+## Deskripsi Dataset
 
 Dataset ini digunakan untuk memprediksi apakah seseorang berisiko mengidap penyakit jantung berdasarkan parameter kesehatan.
 
 ![alt text](resource/data.png)
 
-### Atribut Data
+## Atribut Data
 
 ![alt text](resource/data2.png)
 
@@ -81,11 +81,11 @@ Berikut adalah daftar atribut beserta deskripsinya:
 | ST\_Slope      | Kemiringan segmen ST (Up, Flat, Down)            |
 | HeartDisease   | Target: 1 = memiliki penyakit jantung, 0 = tidak |
 
-### Sumber Dataset
+## Sumber Dataset
 
 * Kaggle: [https://www.kaggle.com/fedesoriano/heart-failure-prediction](https://www.kaggle.com/fedesoriano/heart-failure-prediction)
 
-### Ukuran Dataset
+## Ukuran Dataset
 
 * Jumlah observasi: 918
 * Jumlah fitur: 11 (tidak termasuk target)
@@ -93,7 +93,7 @@ Berikut adalah daftar atribut beserta deskripsinya:
 
 Dataset ini sangat cocok untuk proyek klasifikasi karena memiliki data yang relevan, ukuran yang cukup untuk eksperimen, serta konteks medis yang penting.
 
-### Missing Value & Outlier
+## Missing Value & Outlier
 Mengecek missing value, duplikat, dan data yang dianggap memiliki kejanggalan.
 
 ![alt text](resource/duplikat.png)
@@ -263,7 +263,7 @@ Tiga model machine learning digunakan dalam penelitian ini:
 * Support Vector Machine (SVM)
 * Random Forest
 
-### 1. K-Nearest Neighbors (KNN)
+## 1. K-Nearest Neighbors (KNN)
 
 ```python
 from sklearn.neighbors import KNeighborsClassifier
@@ -288,7 +288,7 @@ knn.fit(X_train, y_train)
 * Lambat pada dataset besar.
 * Sensitif terhadap fitur dengan skala berbeda.
 
-### 2. Support Vector Machine (SVM)
+## 2. Support Vector Machine (SVM)
 
 ```python
 from sklearn.svm import SVC
@@ -315,7 +315,7 @@ svm.fit(X_train, y_train)
 * Kurang efisien pada dataset besar.
 * Sulit untuk diinterpretasi.
 
-### 3. Random Forest
+## 3. Random Forest
 
 ```python
 from sklearn.ensemble import RandomForestClassifier
