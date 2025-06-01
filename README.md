@@ -8,7 +8,7 @@ Penyakit jantung merupakan salah satu penyebab utama kematian di dunia. Faktor-f
 
 Melalui proyek ini, diharapkan dapat dibangun model klasifikasi yang akurat untuk memprediksi kemungkinan seseorang mengidap penyakit jantung. Model ini akan memanfaatkan data historis pasien yang mencakup berbagai parameter kesehatan. Selain itu, proyek ini juga akan memberikan wawasan tentang fitur-fitur mana yang paling berkontribusi terhadap risiko penyakit jantung.
 
-## Business Understanding
+# Business Understanding
 
 ### Problem Statements
 
@@ -52,7 +52,7 @@ Metrik evaluasi yang digunakan dalam proyek ini mencakup:
 * **Recall (Sensitivity):** Proporsi kasus positif yang berhasil dikenali.
 * **F1-Score:** Rata-rata harmonis antara precision dan recall.
 
-## Data Understanding
+# Data Understanding
 
 ### Deskripsi Dataset
 
@@ -209,11 +209,9 @@ Bertujuan untuk memahami hubungan antar fitur.
 
 ---
 
-# Data Preparation dan Model Development
+# Data Preparation  
 
-## Data Preparation
-
-### 1. Encoding Fitur Kategorik
+## Encoding Fitur Kategorik
 
 Untuk mengubah fitur kategorikal menjadi bentuk numerik yang dapat diproses oleh algoritma machine learning, digunakan `LabelEncoder` dari scikit-learn. Fitur yang dikodekan antara lain: `Sex`, `ChestPainType`, `RestingECG`, `ExerciseAngina`, dan `ST_Slope`.
 
@@ -228,7 +226,7 @@ for col in cat_cols:
     df_encoded[col] = le.fit_transform(df_encoded[col])
 ```
 
-### 2. Splitting Data
+## Splitting Data
 
 Data dibagi menjadi 80% untuk pelatihan dan 20% untuk pengujian menggunakan `train_test_split`.
 
@@ -241,7 +239,7 @@ y = df_encoded["HeartDisease"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 ```
 
-### 3. Feature Scaling Numerik
+## Feature Scaling Numerik
 
 Fitur numerik diskalakan menggunakan `StandardScaler` untuk membuat distribusinya standar (mean = 0, std = 1).
 
@@ -257,7 +255,7 @@ X_test[num_cols] = scaler.transform(X_test[num_cols])
 
 ---
 
-## Model Development
+# Model Development
 
 Tiga model machine learning digunakan dalam penelitian ini:
 
@@ -346,7 +344,7 @@ rf.fit(X_train, y_train)
 
 ---
 
-## Evaluasi Model
+# Evaluasi Model
 
 Evaluasi dilakukan menggunakan:
 
@@ -362,7 +360,7 @@ Evaluasi dilakukan menggunakan:
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 ```
 
-### Hasil Evaluasi
+## Hasil Evaluasi
 
 #### KNN:
 
@@ -388,13 +386,13 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
   \[8 53]]
 * **F1-score (class 1)**: 0.86
 
-### Kesimpulan Evaluasi
+## Kesimpulan Evaluasi
 
 * **Random Forest** menunjukkan performa terbaik dengan akurasi 87.8%, precision, recall, dan f1-score tinggi di kedua kelas.
 * **SVM** menyusul dengan akurasi 86.3%, performa seimbang.
 * **KNN** paling rendah performanya dengan akurasi 81.3% dan recall yang lebih rendah pada kelas 1.
 
-### Visualisasi Akurasi
+## Visualisasi Akurasi
 
 ```python
 acc = pd.DataFrame(index=['KNN', 'Random Forest', 'SVM'], columns=['Train', 'Test'])
@@ -439,7 +437,7 @@ pd.DataFrame(pred_dict)
 * Indikasi awal bahwa RF dan SVM lebih andal, meskipun perlu pengujian pada dataset lebih besar untuk validasi akhir.
 
 
-### Kesimpulan Akhir:
+## Kesimpulan Akhir:
 
 * **Random Forest** menunjukkan performa terbaik (akurasi 87.8%).
 * **SVM** menyusul dengan akurasi 86.3% dan hasil seimbang.
