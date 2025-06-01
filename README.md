@@ -31,7 +31,7 @@ Untuk mencapai tujuan di atas, solusi yang diusulkan adalah:
 * Melakukan analisis eksplorasi data (EDA) guna memahami karakteristik data dan hubungan antar fitur dengan label (HeartDisease).
 * Menerapkan dan membandingkan beberapa algoritma klasifikasi (SVM, Random Forest, dan KNN) untuk menentukan model terbaik.
 
-## Metodologi
+### Metodologi
 
 Karena target variabel (HeartDisease) bersifat biner, pendekatan yang digunakan adalah klasifikasi. Model klasifikasi akan memprediksi kelas target (1 = mengidap penyakit jantung, 0 = tidak mengidap) berdasarkan input fitur.
 
@@ -43,7 +43,7 @@ Langkah-langkah utama metodologi adalah:
 4. **Model Evaluation:** Evaluasi model menggunakan metrik yang sesuai.
 5. **Interpretasi:** Analisis hasil dan interpretasi fitur penting.
 
-## Metrik Evaluasi
+### Metrik Evaluasi
 
 Metrik evaluasi yang digunakan dalam proyek ini mencakup:
 
