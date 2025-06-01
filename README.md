@@ -10,28 +10,28 @@ Melalui proyek ini, diharapkan dapat dibangun model klasifikasi yang akurat untu
 
 # Business Understanding
 
-### Problem Statements
+## Problem Statements
 
 Berdasarkan latar belakang di atas, rumusan masalah dari proyek ini adalah:
 
 1. Dari berbagai fitur yang tersedia, fitur mana yang paling berpengaruh terhadap kemungkinan seseorang mengidap penyakit jantung?
 2. Bagaimana cara memprediksi kemungkinan seseorang terkena penyakit jantung berdasarkan riwayat fitur-fitur kesehatan yang tersedia?
 
-### Goals
+## Goals
 
 Tujuan dari proyek ini adalah:
 
 * Mengidentifikasi fitur-fitur yang paling berkorelasi dengan risiko penyakit jantung.
 * Membangun model klasifikasi machine learning yang akurat untuk memprediksi risiko penyakit jantung berdasarkan fitur kesehatan.
 
-### Solution Statements
+## Solution Statements
 
 Untuk mencapai tujuan di atas, solusi yang diusulkan adalah:
 
 * Melakukan analisis eksplorasi data (EDA) guna memahami karakteristik data dan hubungan antar fitur dengan label (HeartDisease).
 * Menerapkan dan membandingkan beberapa algoritma klasifikasi (SVM, Random Forest, dan KNN) untuk menentukan model terbaik.
 
-### Metodologi
+## Metodologi
 
 Karena target variabel (HeartDisease) bersifat biner, pendekatan yang digunakan adalah klasifikasi. Model klasifikasi akan memprediksi kelas target (1 = mengidap penyakit jantung, 0 = tidak mengidap) berdasarkan input fitur.
 
@@ -43,7 +43,7 @@ Langkah-langkah utama metodologi adalah:
 4. **Model Evaluation:** Evaluasi model menggunakan metrik yang sesuai.
 5. **Interpretasi:** Analisis hasil dan interpretasi fitur penting.
 
-### Metrik Evaluasi
+## Metrik Evaluasi
 
 Metrik evaluasi yang digunakan dalam proyek ini mencakup:
 
