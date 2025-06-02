@@ -209,7 +209,47 @@ Bertujuan untuk memahami hubungan antar fitur.
 
 ---
 
-# Data Preparation  
+# Data Preparation
+
+## Penanganan Outlier
+
+Untuk menangani outlier dalam dataset, digunakan **metode IQR (Interquartile Range)**. IQR adalah metode statistik yang mengukur sebaran data tengah dengan menghitung selisih antara kuartil ketiga (Q3) dan kuartil pertama (Q1).
+
+Langkah-langkah penanganan outlier menggunakan IQR:
+
+1. **Hitung Q1 dan Q3**:
+
+   * Q1 = kuartil pertama (25%)
+   * Q3 = kuartil ketiga (75%)
+
+2. **Hitung IQR**:
+
+   $$
+   IQR = Q3 - Q1
+   $$
+
+3. **Tentukan batas bawah dan atas**:
+
+   * Batas bawah = Q1 - 1.5 × IQR
+   * Batas atas = Q3 + 1.5 × IQR
+
+4. **Identifikasi dan hapus baris yang memiliki nilai di luar rentang tersebut** (outlier).
+
+Pada dataset ini, metode tersebut diterapkan sebanyak tiga kali hingga data dinyatakan bersih dari outlier
+**Sebelum Penanganan Outlier**
+
+![alt text](resource/outlier%20sebelum.png)
+
+**Iterasi Pertama**
+
+![alt text](resource/outlier%20iterasi%201.png)
+
+**Hasil:**
+
+* Jumlah data sebelum penghapusan outlier: **918**
+* Jumlah data setelah penghapusan outlier: **691**
+* Penghapusan ini bertujuan untuk meningkatkan kualitas data agar model tidak terdistraksi oleh nilai ekstrim yang tidak representatif.
+
 
 ## Encoding Fitur Kategorik
 
