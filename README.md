@@ -236,6 +236,7 @@ Langkah-langkah penanganan outlier menggunakan IQR:
 4. **Identifikasi dan hapus baris yang memiliki nilai di luar rentang tersebut** (outlier).
 
 Pada dataset ini, metode tersebut diterapkan sebanyak tiga kali hingga data dinyatakan bersih dari outlier
+
 **Sebelum Penanganan Outlier**
 
 ![alt text](resource/outlier%20sebelum.png)
@@ -244,12 +245,25 @@ Pada dataset ini, metode tersebut diterapkan sebanyak tiga kali hingga data diny
 
 ![alt text](resource/outlier%20iterasi%201.png)
 
+Dapat dilihat masih terdapat beberapa outlier pada atribut `cholesterol`
+
+**Iterasi Kedua**
+
+![alt text](resource/outlier%20iterasi%202.png)
+
+Disini juga masih ada sedikit outlier pada atribut `cholsterol`
+
+**Iterasi Ketiga**
+
+![alt text](resource/outlier%20seesudah.png)
+
+Setelah 3 kali iterasi, barulah dataset bersih dari outlier
+
 **Hasil:**
 
 * Jumlah data sebelum penghapusan outlier: **918**
 * Jumlah data setelah penghapusan outlier: **691**
 * Penghapusan ini bertujuan untuk meningkatkan kualitas data agar model tidak terdistraksi oleh nilai ekstrim yang tidak representatif.
-
 
 ## Encoding Fitur Kategorik
 
@@ -402,7 +416,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 
 ## Hasil Evaluasi
 
-#### KNN:
+### KNN:
 
 * **Accuracy**: 81.3%
 * **Confusion Matrix**:
@@ -410,7 +424,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
   \[15 46]]
 * **F1-score (class 1)**: 0.78
 
-#### SVM:
+### SVM:
 
 * **Accuracy**: 86.3%
 * **Confusion Matrix**:
@@ -418,7 +432,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
   \[ 8 53]]
 * **F1-score (class 1)**: 0.85
 
-#### Random Forest:
+### Random Forest:
 
 * **Accuracy**: 87.8%
 * **Confusion Matrix**:
