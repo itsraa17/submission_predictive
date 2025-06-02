@@ -202,7 +202,6 @@ Bertujuan untuk memahami hubungan antar fitur.
 **Kesimpulan EDA**
 
 * Tidak ditemukan data duplikat maupun missing values.
-* Outlier berhasil dihapus, menyisakan 691 baris data yang bersih.
 * Fitur kategorikal seperti ChestPainType, ExerciseAngina, dan ST\_Slope menunjukkan korelasi kuat terhadap HeartDisease.
 * Fitur numerik Oldpeak dan MaxHR memperlihatkan pola berbeda antar label target.
 * Dataset siap digunakan untuk tahap feature engineering dan pemodelan prediktif.
@@ -319,6 +318,14 @@ Tiga model machine learning digunakan dalam penelitian ini:
 
 ## 1. K-Nearest Neighbors (KNN)
 
+K-Nearest Neighbors adalah algoritma klasifikasi berbasis instance (lazy learner). KNN menentukan kelas suatu data baru berdasarkan mayoritas dari k tetangga terdekat.
+
+**Cara kerja KNN:**
+
+1. Hitung jarak data baru ke seluruh data dalam dataset.
+2. Ambil k data terdekat.
+3. Lakukan voting: kelas yang paling sering muncul dari k tetangga itu akan menjadi kelas data baru.
+
 ```python
 from sklearn.neighbors import KNeighborsClassifier
 
@@ -343,6 +350,14 @@ knn.fit(X_train, y_train)
 * Sensitif terhadap fitur dengan skala berbeda.
 
 ## 2. Support Vector Machine (SVM)
+
+SVM adalah algoritma klasifikasi yang mencari hyperplane terbaik yang memisahkan dua kelas dengan margin terbesar. Margin adalah jarak antara hyperplane dan titik data terdekat dari masing-masing kelas.
+
+**Cara kerja SVM:**
+
+1. Temukan hyperplane pemisah di ruang fitur berdimensi tinggi.
+2. Maksimalkan margin antar kelas.
+3. Jika data tidak bisa dipisahkan secara linear, SVM dapat menggunakan kernel trick untuk memetakan ke ruang yang lebih tinggi.
 
 ```python
 from sklearn.svm import SVC
@@ -370,6 +385,14 @@ svm.fit(X_train, y_train)
 * Sulit untuk diinterpretasi.
 
 ## 3. Random Forest
+
+Random Forest adalah algoritma ensemble learning yang terdiri dari banyak Decision Tree yang dilatih dengan teknik bagging dan pemilihan fitur acak.
+
+**Cara kerja Random Forest:**
+
+1. Buat banyak decision tree dengan subset data dan fitur yang berbeda.
+2. Masing-masing tree melakukan klasifikasi.
+3. Hasil akhir diambil dari mayoritas voting dari seluruh pohon.
 
 ```python
 from sklearn.ensemble import RandomForestClassifier
@@ -490,12 +513,19 @@ pd.DataFrame(pred_dict)
 * KNN dua kali gagal memprediksi dengan benar.
 * Indikasi awal bahwa RF dan SVM lebih andal, meskipun perlu pengujian pada dataset lebih besar untuk validasi akhir.
 
+## Keterkaitan Evaluasi Model dengan Business Understanding
 
-## Kesimpulan Akhir:
+Model yang dikembangkan dalam proyek ini bertujuan untuk memprediksi risiko seseorang mengidap penyakit jantung berdasarkan fitur-fitur kesehatan yang tersedia. Hal ini sesuai dengan Problem Statement dan Goals yang telah ditentukan, yaitu membantu mengidentifikasi faktor-faktor signifikan dan membangun sistem prediksi yang akurat.
 
-* **Random Forest** menunjukkan performa terbaik (akurasi 87.8%).
-* **SVM** menyusul dengan akurasi 86.3% dan hasil seimbang.
-* **KNN** memiliki akurasi terendah dan paling banyak kesalahan pada prediksi sampel.
+Berdasarkan hasil evaluasi, algoritma Random Forest dan SVM menunjukkan performa yang cukup baik, dengan akurasi masing-masing 87.8% dan 86.3%. Artinya, model mampu mendeteksi sebagian besar kasus penyakit jantung secara tepat, serta memiliki potensi untuk diterapkan dalam skenario nyata sebagai alat bantu diagnosis awal.
 
-Random Forest dan SVM tampak lebih andal pada dataset ini dalam mendeteksi penyakit jantung.
+## Dampak terhadap Tujuan Proyek dan Manfaat Bisnis
+
+1. **Akurasinya tinggi dan konsisten:** Random Forest dan SVM menunjukkan kinerja yang andal dalam mengklasifikasikan pasien, sebagaimana terlihat dari hasil pengujian terhadap sampel acak dan metrik evaluasi.
+2. **Relevan dengan kebutuhan medis:** Prediksi risiko penyakit jantung dapat membantu dokter dan institusi kesehatan untuk melakukan deteksi dini, terutama pada pasien yang secara klinis belum menunjukkan gejala signifikan.
+3. **Efisiensi layanan kesehatan:** Model ini memungkinkan pengambilan keputusan medis yang lebih cepat, serta mempermudah penyaringan pasien yang memerlukan pemeriksaan lebih lanjut.
+4. **Peningkatan kualitas hidup:** Dengan intervensi medis yang lebih dini, risiko komplikasi akibat keterlambatan diagnosis dapat ditekan, sehingga dapat meningkatkan angka harapan hidup pasien.
+
+Dengan demikian, solusi yang dihasilkan tidak hanya memenuhi tujuan teknikal dari proyek ini, tetapi juga memberikan kontribusi nyata terhadap efisiensi layanan medis dan peningkatan kualitas hidup pasien, yang merupakan esensi utama dari Business Understanding proyek ini.
+
 
