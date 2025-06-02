@@ -255,7 +255,7 @@ Disini juga masih ada sedikit outlier pada atribut `cholsterol`
 
 **Iterasi Ketiga**
 
-![alt text](resource/outlier%20seesudah.png)
+![alt text](resource/outlier%20sesudah.png)
 
 Setelah 3 kali iterasi, barulah dataset bersih dari outlier
 
